@@ -9,8 +9,18 @@ export interface JsonRpcRequest {
   params: any[]
 }
 
-export interface JsonRpcResponse<T> {
+export type JsonRpcResponse<T> =
+  | JsonRpcResultResponse<T>
+  | JsonRpcErrorResponse
+
+export interface JsonRpcResultResponse<T> {
   result: T
+  error?: undefined
+}
+
+export interface JsonRpcErrorResponse {
+  result?: undefined
+  error: { message: string }
 }
 
 export async function fetchAsJsonRpc<T>(call: JsonRpcRequest, more: FetcherMore) {
@@ -27,7 +37,7 @@ export async function fetchAsJsonRpc<T>(call: JsonRpcRequest, more: FetcherMore)
     return { error }
   }
 
-  const data = await res.json() as T
+  const data = await res.json() as JsonRpcResponse<T>
   return { data }
 }
 
