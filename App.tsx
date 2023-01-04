@@ -1,7 +1,7 @@
 import { FetcherMore, getSingleSchema, useFetch, useQuery, XSWR } from "@hazae41/xswr";
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from "expo-status-bar";
 import { useCallback } from "react";
-import { Button, SafeAreaView, Text } from 'react-native';
+import { Button, SafeAreaView, Text } from "react-native";
 
 export interface JsonRpcRequest {
   endpoint: string,
