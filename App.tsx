@@ -42,11 +42,11 @@ export async function fetchAsJsonRpc<T>(call: JsonRpcRequest, more: FetcherMore)
 }
 
 export function getBalanceSchema() {
-  return getSingleSchema<unknown>({
+  return getSingleSchema({
     endpoint: "https://rpc.ankr.com/eth",
     method: "eth_getBalance",
     params: ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045", "latest"]
-  }, fetchAsJsonRpc)
+  }, fetchAsJsonRpc<unknown>)
 }
 
 export function useBalanceQuery() {

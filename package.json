@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@expo/webpack-config": "^0.17.3",
-    "@hazae41/xswr": "^1.1.12",
+    "@hazae41/xswr": "^1.2.0",
     "@types/react": "~18.0.26",
     "@types/react-native": "~0.70.8",
     "expo": "^47.0.10",
